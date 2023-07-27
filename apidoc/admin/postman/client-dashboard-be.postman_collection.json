@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "e754c526-cda0-497f-aa58-6fdbb731e99b",
+		"name": "client-dashboard-be",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/scenarios Scenarios.Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"name\": \"1\",\n        \"title\": \"scenario_title1234567890base_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorscenario_title1234567890base_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorscenario_title1234567890base_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorscenario_title1234567890base_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorscenario_title1234567890base_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_colorbase_color\",\n        \"mode\": \"ADVANCED\",\n        \"script\":\"echo 'hello';\",\n        \"language\":\"JS\",\n        \"status\":\"ACTIVE\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/scenarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scenarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/scenarios/:id Scenarios.Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/scenarios/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scenarios",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/scenarios Scenarios.List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/scenarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scenarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/scenarios/:id Scenarios.Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/scenarios/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scenarios",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/scenarios/:id Scenarios.Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"title\": \"1234\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/scenarios/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scenarios",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sessions Scenarios.Create pin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"pin\":\"123456\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sessions Scenarios.Create token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOnRydWUsImlhdCI6MTU3MjI3OTUzOCwiZXhwIjoxNTcyMjc5ODM4fQ.sXwKSwqhOgZfxvr3J8aWsqD1yPUJuQ6k7ayU1WmYHh\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/settings Settings.GetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"title\": \"1234\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/settings",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/settings Settings.Update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"secure_mode_enabled\":false\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/settings",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/users/pin Users.SetPin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"pin\":\"123456\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/pin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"pin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/users/info Users.Info",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"secure_mode_enabled\":false\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"info"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

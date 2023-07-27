@@ -1,0 +1,81 @@
+{
+    "name": "client-dashboard-be",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "cli": "node ./.bin/cli.js",
+        "nodemon": "nodemon -L runner.js",
+        "test:lint": "eslint lib tests bin app.js --ext js",
+        "test": "jest --runInBand",
+        "test:audit": "npm audit",
+        "test:coverage": "npm run test -- --coverage",
+        "start": "node runner.js",
+        "migration-production": "npx sequelize db:migrate --env production",
+        "migration-test": "npx sequelize db:migrate --env test",
+        "migration-dev": "npx sequelize db:migrate --env development"
+    },
+    "dependencies": {
+        "all-the-cities": "^3.1.0",
+        "array-sort": "^1.0.0",
+        "babel-eslint": "10.1.0",
+        "bcryptjs": "^2.4.3",
+        "bluebird": "^3.5.1",
+        "body-parser": "^1.18.2",
+        "chista": "^1.0.0",
+        "colors": "^1.0.3",
+        "connect-multiparty": "^2.1.0",
+        "cors": "^2.8.4",
+        "express": "^4.16.3",
+        "extensions-manager-sdk": "github:2SmartCloud/2smart-standalone-extensions-manager-sdk",
+        "jsonwebtoken": "^8.2.0",
+        "livr": "^2.0.2",
+        "livr-extra-rules": "^1.2.1",
+        "mysql2": "^1.7.0",
+        "sequelize": "^5.18.4",
+        "sequelize-cli": "^5.5.1",
+        "underscore": "^1.9.1",
+        "uuid-validate": "0.0.2",
+        "winston": "^3.3.3",
+        "yargs": "^14.2.1"
+    },
+    "devDependencies": {
+        "eslint": "^4.19.0",
+        "eslint-config-webbylab": "^4.0.0",
+        "eslint-plugin-fetch": "0.0.1",
+        "eslint-plugin-import": "^2.9.0",
+        "eslint-plugin-jest": "^22.14.1",
+        "eslint-plugin-more": "^0.3.1",
+        "eslint-plugin-no-require-lodash": "^1.1.0",
+        "eslint-plugin-prefer-spread": "^1.0.3",
+        "eslint-plugin-react": "^7.7.0",
+        "istanbul": "^1.1.0-alpha.1",
+        "jest": "^24.8.0",
+        "jest-environment-node": "^24.8.0",
+        "nodemon": "^1.17.2"
+    },
+    "description": "Client dashboard be",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:2SmartCloud/2smart-standalone-backend.git"
+    },
+    "author": "2Smart",
+    "jest": {
+        "verbose": true,
+        "globalTeardown": "./tests/jestGlobalTeardown.js",
+        "globalSetup": "./tests/jestGlobalSetup.js",
+        "collectCoverageFrom": [
+            "**/lib/**/*.js",
+            "!**/lib/controllers/*.js",
+            "!**/lib/models/utils.js",
+            "!**/lib/*.js",
+            "!**/node_modules/**"
+        ],
+        "testPathIgnorePatterns": [
+            "<rootDir>/test.js"
+        ],
+        "setupFiles": [
+            "<rootDir>/tests/jestSetup.js"
+        ]
+    }
+}

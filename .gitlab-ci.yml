@@ -1,0 +1,81 @@
+image: $DOCKER_REGISTRY_PREFIX/2smart/utils/combined-ci-image:buildx
+
+stages:
+  - test
+  - build
+  - push
+  - update
+  - buildx
+
+services:
+  - name: $DOCKER_REGISTRY_PREFIX/2smart/base-images/docker-dind
+    alias: docker
+    command: [ "--experimental" ]
+  - name: $DOCKER_REGISTRY_PREFIX/2smart/standalone/services/mysql:latest
+    alias: mysql
+
+variables:
+  MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+  MYSQL_DATABASE: '2smart_test'
+  MYSQL_USER: '2smart-test'
+  MYSQL_PASSWORD: 'test-password'
+  MODE: 'test'
+  DB_HOSTNAME: 'mysql'
+  DB_TEST_USERNAME: '2smart-test'
+  DB_TEST_PASSWORD: 'test-password'
+  DB_TEST_NAME: '2smart_test'
+  DB_PORT: '3306'
+  TEST_JWT_TOKEN_SECRET: 1234
+  TEST_JWT_AUTO_EXIT_PIN_MAX_AGE: 300
+  TEST_JWT_TOKEN_PIN_MAX_AGE: 86400
+  TEST_JWT_TOKEN_PASSWORD_MAX_AGE: 3600
+  MQTT_ROOT_USERNAME: 'root'
+  MQTT_ROOT_PASSWORD: '1'
+  MQTT_YW_USER: 'yw'
+  MQTT_YW_PASS: '1'
+  MQTT_DD_USER: 'dd'
+  MQTT_DD_PASS: '1'
+  MQTT_USER: 'test-user'
+  MQTT_PASS: 'test-password'
+
+before_script:
+  - npm i
+
+lint:
+  stage: test
+  script:
+    - npm run test:lint
+  only:
+    - 'merge_requests'
+    - 'master'
+
+test:
+  stage: test
+  script:
+    - npm run migration-test
+    - npm run test --
+  only:
+    - 'merge_requests'
+    - 'master'
+
+build:
+  stage: build
+  script:
+    - git clone https://oauth2:$ACCESS_TOKEN@$DOCKER_UTILS_REPO_URL
+    - mv docker-utils/utils.sh docker.sh
+    - ./docker.sh rundaemon
+    - ./docker.sh build
+    - ./docker.sh push
+  only:
+    - 'master'
+
+buildx:
+  stage: buildx
+  script:
+    - git clone https://oauth2:$ACCESS_TOKEN@$DOCKER_UTILS_REPO_URL
+    - mv docker-utils/utils.sh docker.sh
+    - ./docker.sh rundaemon
+    - ./docker.sh login
+    - SOURCE_TAG=$MULTIPLATFORM_TAG ./docker.sh buildx
+  when: manual
+  allow_failure: true
