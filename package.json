@@ -26,7 +26,7 @@
         "connect-multiparty": "^2.1.0",
         "cors": "^2.8.4",
         "express": "^4.16.3",
-        "extensions-manager-sdk": "github:2SmartCloud/2smart-standalone-extensions-manager-sdk",
+        "extensions-manager-sdk": "^1.0.0",
         "jsonwebtoken": "^8.2.0",
         "livr": "^2.0.2",
         "livr-extra-rules": "^1.2.1",
